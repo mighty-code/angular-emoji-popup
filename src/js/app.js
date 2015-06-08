@@ -4,20 +4,17 @@
 
 var emojiApp = angular.module("emojiApp", ['ngSanitize']);
 
-emojiApp.config(['$sceProvider', function($sceProvider)
-{
+emojiApp.config(['$sceProvider', function ($sceProvider) {
 
-  $sceProvider.enabled(false);
+    $sceProvider.enabled(false);
 
     var icons = {},
         reverseIcons = {},
         i, j, hex, name, dataItem, row, column, totalColumns;
 
-    for (j = 0; j < Config.EmojiCategories.length; j++)
-    {
+    for (j = 0; j < Config.EmojiCategories.length; j++) {
         totalColumns = Config.EmojiCategorySpritesheetDimens[j][1];
-        for (i = 0; i < Config.EmojiCategories[j].length; i++)
-        {
+        for (i = 0; i < Config.EmojiCategories[j].length; i++) {
             dataItem = Config.Emoji[Config.EmojiCategories[j][i]];
             name = dataItem[1][0];
             row = Math.floor(i / totalColumns);
@@ -29,7 +26,7 @@ emojiApp.config(['$sceProvider', function($sceProvider)
         }
     }
 
-    $.emojiarea.spritesheetPath = 'img/emojisprite_!.png';
+    $.emojiarea.spritesheetPath = '../dist/img/emojisprite_!.png';
     $.emojiarea.spritesheetDimens = Config.EmojiCategorySpritesheetDimens;
     $.emojiarea.iconSize = 20;
     $.emojiarea.icons = icons;
@@ -37,37 +34,37 @@ emojiApp.config(['$sceProvider', function($sceProvider)
 
 }]);
 
-emojiApp.directive('contenteditable', [ '$sce', function($sce) {
-  return {
-    restrict : 'A', // only activate on element attribute
-    require : '?ngModel', // get a hold of NgModelController
-    link : function(scope, element, attrs, ngModel) {
-      if (!ngModel)
-        return; // do nothing if no ng-model
+emojiApp.directive('contenteditable', ['$sce', function ($sce) {
+    return {
+        restrict: 'A', // only activate on element attribute
+        require: '?ngModel', // get a hold of NgModelController
+        link: function (scope, element, attrs, ngModel) {
+            if (!ngModel)
+                return; // do nothing if no ng-model
 
-      // Specify how UI should be updated
-      ngModel.$render = function() {
-        element.html(ngModel.$viewValue || '');
-      };
+            // Specify how UI should be updated
+            ngModel.$render = function () {
+                element.html(ngModel.$viewValue || '');
+            };
 
-      // Listen for change events to enable binding
-      element.on('blur keyup change', function() {
-        scope.$evalAsync(read);
-      });
-      read(); // initialize
+            // Listen for change events to enable binding
+            element.on('blur keyup change', function () {
+                scope.$evalAsync(read);
+            });
+            read(); // initialize
 
-      // Write data to the model
-      function read() {
-        var html = element.html();
-        // When we clear the content editable the browser leaves a <br>
-        // behind
-        // If strip-br attribute is provided then we strip this out
-        if (attrs.stripBr && html == '<br>') {
-          html = '';
+            // Write data to the model
+            function read() {
+                var html = element.html();
+                // When we clear the content editable the browser leaves a <br>
+                // behind
+                // If strip-br attribute is provided then we strip this out
+                if (attrs.stripBr && html == '<br>') {
+                    html = '';
+                }
+                ngModel.$setViewValue(html);
+            }
         }
-        ngModel.$setViewValue(html);
-      }
-    }
-  };
-} ]);
+    };
+}]);
 
