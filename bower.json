@@ -1,15 +1,28 @@
 {
   "name": "angular-emoji-popup",
-  "version": "0.0.0",
+  "version": "0.1",
   "homepage": "https://github.com/Coraza/angular-emoji-popup",
   "description": "Angular based Emoji Popup along with filters for encoding/decoding emojis",
-  "main": ["dist/js/config.js", "dist/js/emoji.min.js", "dist/css/emoji.min.css"],
+  "main": [
+    "dist/js/config.js",
+    "dist/js/emoji.min.js",
+    "dist/css/emoji.min.css"
+  ],
   "keywords": [
     "angular",
     "emoji"
   ],
   "authors": [
-    "madhur"
+    "madhur",
+    "mighty-code"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.4.0",
+    "angular-sanitize": "~1.4.0",
+    "jquery": "~2.1.4",
+    "bootstrap": "~3.3.4",
+    "nanoscroller": "~0.8.7",
+    "jquery-emojiarea": "https://github.com/diy/jquery-emojiarea.git"
+  }
 }
