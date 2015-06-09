@@ -1,5 +1,3 @@
-/*! Angular Emoji 1.0.0 2014-12-27 */
-
 'use strict';
 
 
@@ -14,19 +12,38 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
     function link($scope, element, attrs) {
         var messageField = $('textarea', element)[0],
             fileSelects = $('input', element),
-            emojiButton = $('#emojibtn', element)[0];
-
-        var editorElement = messageField,
+            emojiButton = $('#emojibtn', element)[0],
+            editorElement = messageField,
             emojiArea = $(messageField).emojiarea(
                 {
+                    path: '',
+                    spritesheetPath: '',
+                    spritesheetDimens: [],
+                    iconSize: 20,
+                    icons: {},
                     button: emojiButton,
                     norealTime: true
                 }),
             emojiMenu = $('.emoji-menu', element)[0],
-            richTextarea = $('.emoji-wysiwyg-editor', element)[0];
+            richTextarea = $(
+                '.emoji-wysiwyg-editor', element)[0];
+
+        //$.emojiarea = {
+        //    path: '',
+        //    spritesheetPath: '',
+        //    spritesheetDimens: [],
+        //    iconSize: 20,
+        //    icons: {},
+        //    defaults: {
+        //        button: null,
+        //        buttonLabel: 'Emojis',
+        //        buttonPosition: 'after'
+        //    }
+        //};
 
         var s = $compile($("#messageDiv"));
         $("#messageDiv").replaceWith(s($scope));
+
 
         if (richTextarea) {
             editorElement = richTextarea;
@@ -205,6 +222,7 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
         });
     }
 }]);
+
 
 emojiApp.directive('contenteditable', ['$sce', function ($sce) {
     return {

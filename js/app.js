@@ -1,5 +1,3 @@
-/*! Angular Emoji 1.0.0 2014-12-27 */
-
 'use strict';
 
 var emojiApp = angular.module("emojiApp", ['ngSanitize']);
@@ -26,7 +24,7 @@ emojiApp.config(['$sceProvider', function ($sceProvider) {
         }
     }
 
-    $.emojiarea.spritesheetPath = '../dist/img/emojisprite_!.png';
+    $.emojiarea.spritesheetPath = '../img/emojisprite_!.png';
     $.emojiarea.spritesheetDimens = Config.EmojiCategorySpritesheetDimens;
     $.emojiarea.iconSize = 20;
     $.emojiarea.icons = icons;

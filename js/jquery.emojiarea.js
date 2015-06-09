@@ -1,5 +1,3 @@
-/*! Angular Emoji 1.0.0 2014-12-27 */
-
 /**
  * emojiarea - A rich textarea control that supports emojis, WYSIWYG-style.
  * Copyright (c) 2012 DIY Co
@@ -276,7 +274,7 @@
         + xoffset + 'px ' + yoffset + 'px no-repeat;';
         style += 'background-size:' + scaledWidth + 'px ' + scaledHeight
         + 'px;';
-        return '<img src="img/blank.gif" class="img" style="'
+        return '<img src="../img/blank.gif" class="img" style="'
             + style + '" alt="' + util.htmlEntities(name) + '">';
     };
 
