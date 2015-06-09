@@ -1,28 +1,26 @@
-/*span.emoji {*/
-    /*display: -moz-inline-box;*/
-    /*-moz-box-orient: vertical;*/
-    /*display: inline-block;*/
-    /*vertical-align: baseline;*/
-    /**vertical-align: auto;*/
-    /**zoom: 1;*/
-    /**display: inline;*/
-    /*width: 1em;*/
-    /*height: 1em;*/
-    /*background-size: 1em;*/
-    /*background-repeat: no-repeat;*/
-    /*text-indent: -9999px;*/
-/*}*/
+@import "variables";
 
-/*span.emoji-sizer {*/
-    /*line-height: 0.81em;*/
-    /*font-size: 1em;*/
-    /*margin: -2px 0;*/
-/*}*/
+span.emoji {
+    display: -moz-inline-box;
+    -moz-box-orient: vertical;
+    display: inline-block;
+    vertical-align: baseline;     
+    width: 1em;
+    height: 1em;
+    background-size: 1em;
+    background-repeat: no-repeat;
+    text-indent: -9999px;
+}
+
+span.emoji-sizer {
+    line-height: 0.81em;
+    font-size: 1em;
+    margin: -2px 0;
+}
 
 span.emoji-outer {
     display: -moz-inline-box;
     display: inline-block;
-    /**display: inline;*/
     height: 1em;
     width: 1em;
 }
@@ -34,8 +32,6 @@ span.emoji-inner {
     width: 100%;
     height: 100%;
     vertical-align: baseline;
-    *vertical-align: auto;
-    *zoom: 1;
 }
 
 img.emoji {
@@ -43,17 +39,14 @@ img.emoji {
     height: 1em;
 }
 
-.emoji-wysiwyg-editor:empty:before {
-    content: attr(placeholder);
-    color: #9aa2ab;
-}
 
+/* Beispiel button */
 .icon-emoji {
     display: inline-block;
     width: 23px;
     height: 23px;
     vertical-align: text-top;
-    background: url('../img/IconsetW.png') -10px -4px/42px 1171px no-repeat;
+    background: url('@{icon-dir}/IconsetW.png') -10px -4px/42px 1171px no-repeat;
     opacity: 0.8;
 }
 
@@ -75,13 +68,13 @@ img.emoji {
 .emoji-wysiwyg-editor {
     padding: 6px;
     -moz-box-sizing: content-box;
-    font-size: 12px;
+    /*font-size: 12px;*/
     margin-bottom: 10px;
     min-height: 36px;
     height: 30px;
     max-height: 284px;
     overflow: auto;
-    line-height: 17px;
+    /*line-height: 17px;*/
 
     border: 1px solid #d2dbe3;
     border-radius: 2px;
@@ -89,7 +82,6 @@ img.emoji {
     box-shadow: none;
     -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
     transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-
     -webkit-user-select: text;
     word-wrap: break-word;
 }
@@ -108,7 +100,6 @@ img.emoji {
     margin-left: -107px;
     margin-top: -252px;
     overflow: hidden;
-
     border: 1px #dfdfdf solid;
     -webkit-border-radius: 3px;
     -moz-border-radius: 3px;
@@ -140,12 +131,12 @@ img.emoji {
     display: inline-block;
     width: 24px;
     height: 29px;
-    background: url('../img/IconsetSmiles.png') no-repeat;
+    background: url('@{icon-dir}/IconsetSmiles.png') no-repeat;
     background-size: 42px 350px;
 }
 
 .is_1x .emoji-menu-tabs .emoji-menu-tab {
-    background-image: url('../img/IconsetSmiles_1x.png');
+    background-image: url('@{icon-dir}/IconsetSmiles_1x.png');
 }
 
 .emoji-menu-tabs .icon-recent {

@@ -34,8 +34,8 @@
      * 'iconSize' added by Andre Staltz.
      */
     $.emojiarea = {
-        path: '',
-        spritesheetPath: '',
+        path: '../img', //set path to folder where the images are in
+        spritesheetPath: '', //Directive will configurate this
         spritesheetDimens: [],
         iconSize: 20,
         icons: {},
@@ -45,6 +45,7 @@
             buttonPosition: 'after'
         }
     };
+    
     var defaultRecentEmojis = ':joy:,:kissing_heart:,:heart:,:heart_eyes:,:blush:,:grin:,:+1:,:relaxed:,:pensive:,:smile:,:sob:,:kiss:,:unamused:,:flushed:,:stuck_out_tongue_winking_eye:,:see_no_evil:,:wink:,:smiley:,:cry:,:stuck_out_tongue_closed_eyes:,:scream:,:rage:,:smirk:,:disappointed:,:sweat_smile:,:kissing_closed_eyes:,:speak_no_evil:,:relieved:,:grinning:,:yum:,:laughing:,:ok_hand:,:neutral_face:,:confused:'
         .split(',');
     /* ! MODIFICATION END */
@@ -274,7 +275,8 @@
         + xoffset + 'px ' + yoffset + 'px no-repeat;';
         style += 'background-size:' + scaledWidth + 'px ' + scaledHeight
         + 'px;';
-        return '<img src="../img/blank.gif" class="img" style="'
+        console.log($.emojiarea.spritesheetPath);
+        return '<img src="' + $.emojiarea.path + '/blank.gif" class="img" style="'
             + style + '" alt="' + util.htmlEntities(name) + '">';
     };
 

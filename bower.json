@@ -22,7 +22,6 @@
     "angular-sanitize": "~1.4.0",
     "jquery": "~2.1.4",
     "bootstrap": "~3.3.4",
-    "nanoscroller": "~0.8.7",
-    "jquery-emojiarea": "https://github.com/diy/jquery-emojiarea.git"
+    "nanoscroller": "~0.8.7"
   }
 }

@@ -22,7 +22,7 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
                     iconSize: 20,
                     icons: {},
                     button: emojiButton,
-                    norealTime: true
+                    norealTime: true,
                 }),
             emojiMenu = $('.emoji-menu', element)[0],
             richTextarea = $(

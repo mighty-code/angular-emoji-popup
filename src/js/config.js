@@ -3486,6 +3486,7 @@ Config.init_emoticons = function()
     Config.rx_emoticons = new RegExp(
         ('(^|\\s)(' + a.join('|') + ')(?=$|[\\s|\\?\\.,!])'), 'g');
 };
+
 Config.init_colons = function()
 {
     if (Config.inits.colons)
@@ -3501,6 +3502,7 @@ Config.init_colons = function()
         }
     }
 };
+
 Config.init_unified = function()
 {
     if (Config.inits.unified)
@@ -3510,7 +3512,6 @@ Config.init_unified = function()
     buildMap();
 
 };
-
 
 Config.escape_rx = function(text)
 {

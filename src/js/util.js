@@ -12,9 +12,6 @@ function cancelEvent (event) {
   return false;
 }
 
-
-
-
 //ConfigStorage
 (function(window)
 {
