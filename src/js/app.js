@@ -24,7 +24,9 @@ emojiApp.config(['$sceProvider', function ($sceProvider) {
         }
     }
 
-    $.emojiarea.spritesheetPath = '../img/emojisprite_!.png';
+    $.emojiarea.path = '../dist/img'; //relative to where this js is run at
+    $.emojiarea.spritesheetPath = '../dist/img/emojisprite_!.png'; //relative to where this js is run at
+
     $.emojiarea.spritesheetDimens = Config.EmojiCategorySpritesheetDimens;
     $.emojiarea.iconSize = 20;
     $.emojiarea.icons = icons;

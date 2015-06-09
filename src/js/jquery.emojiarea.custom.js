@@ -34,8 +34,8 @@
      * 'iconSize' added by Andre Staltz.
      */
     $.emojiarea = {
-        path: '../img', //set path to folder where the images are in
-        spritesheetPath: '', //Directive will configurate this
+        path: '', // set in app.js
+        spritesheetPath: '', // set in app.js
         spritesheetDimens: [],
         iconSize: 20,
         icons: {},
@@ -275,7 +275,6 @@
         + xoffset + 'px ' + yoffset + 'px no-repeat;';
         style += 'background-size:' + scaledWidth + 'px ' + scaledHeight
         + 'px;';
-        console.log($.emojiarea.spritesheetPath);
         return '<img src="' + $.emojiarea.path + '/blank.gif" class="img" style="'
             + style + '" alt="' + util.htmlEntities(name) + '">';
     };

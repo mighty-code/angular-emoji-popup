@@ -106,7 +106,6 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
         );
 
         function updateRichTextarea() {
-            console.log("updateRichTextarea");
             if (richTextarea) {
                 $timeout.cancel(updatePromise);
                 var html = $('<div>').text(
@@ -165,7 +164,6 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
 
 
         function onPasteEvent(e) {
-            console.log("onPasteEvent");
             var cData = (e.originalEvent || e).clipboardData,
                 items = cData && cData.items || [],
                 files = [],

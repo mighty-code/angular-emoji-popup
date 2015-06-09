@@ -46,8 +46,7 @@ img.emoji {
     width: 23px;
     height: 23px;
     vertical-align: text-top;
-    background: url('@{icon-dir}/IconsetW.png') -10px -4px/42px 1171px no-repeat;
-    opacity: 0.8;
+    background: url('@{icon-dir}/IconsetW.png') ~"-10px -4px/42px 1171px" no-repeat;
 }
 
 .im_emoji_btn:hover .icon-emoji {
@@ -95,6 +94,7 @@ img.emoji {
 
 .emoji-menu {
     position: absolute;
+    display:inline-block;
     z-index: 999;
     width: 225px;
     margin-left: -107px;
@@ -131,12 +131,12 @@ img.emoji {
     display: inline-block;
     width: 24px;
     height: 29px;
-    background: url('@{icon-dir}/IconsetSmiles.png') no-repeat;
+    background: url("@{icon-dir}/IconsetSmiles.png") no-repeat;
     background-size: 42px 350px;
 }
 
 .is_1x .emoji-menu-tabs .emoji-menu-tab {
-    background-image: url('@{icon-dir}/IconsetSmiles_1x.png');
+    background-image: url("@{icon-dir}/IconsetSmiles_1x.png");
 }
 
 .emoji-menu-tabs .icon-recent {

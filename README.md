@@ -6,7 +6,14 @@ An angular module to serve multiple purpose:
 * Filters to encode the message containing emoji to various formats and decode them.
 
 ###[Demo(From original Repo)](http://coraza.github.io/angular-emoji-popup/)
-Demo for this repo you can find in the folder "example"
+**Demo for this repo you can find in the folder "*example*"**
+
+##TODO
+Pleas note that this repo is in a rebuild state. **Don't use for any productive purposes!**
+ - Update Documentation
+ - Make the Popover Icon Menu Mobile usable
+ - Register as Bower Package
+ - Test
 
 ###Note about encoding and decoding
 There are various standards to encode and decode emojis. Most popular are:
@@ -27,14 +34,26 @@ This module contain various filters to encode and decode emojis in the above for
 
 Only dependencies are `Jquery`, `AngularJs` and `angular-Sanitize` module.
 
+###Dependencies
+You can build the vendor at your self or take the following samples:
 ```html
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.7/angular.min.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.7/angular-sanitize.min.js"></script>
+<link type="text/stylesheet" rel="stylesheet" href="../dist/css/angular-emoji-vendor.min.css"/>
+```
+###Core Styles
+The following styles are necessary:
+```html
+<link type="text/stylesheet" rel="stylesheet" href="../dist/css/angular-emoji.min.css"/>
+```
+src/less/variables.less
 
-<script type="text/javascript" src="js/config.js"></script>
-<script type="text/javascript" src="js/emoji.min.js"></script>
-<link type="text/stylesheet" rel="stylesheet" href="css/emoji.min.css" />
+```less
+@icon-dir : '../img'; // relative to this file!
+```
+
+src/js/app.js
+```javascript
+$.emojiarea.path = '../dist/img'; //relative to where this js is run at
+    $.emojiarea.spritesheetPath = '../dist/img/emojisprite_!.png'; //relative to where this js is run at
 ```
 
 Inject the `emojiApp` module to your app
@@ -68,7 +87,7 @@ emojiApp.controller('emojiController', ['$scope', function($scope) {
 	$scope.emojiMessage={};
 }]);
 ```
-###Encoding
+###Encoding 
 By default, emoji are encoded to colon style string. Hence `emojiMessage.messagetext` will contain the encoded emoji with colons.
 
 `emojiMessage.rawhtml` will contain the raw html string of the message.
@@ -81,7 +100,7 @@ For additional encodings, the following filters can be used
 <div ng-bind="emojiMessage.messagetext | colonToCode"> </div>
 ```
 
-###Decoding
+###Decoding 
 For decoding the message string containing either colon style emojis or UTF-8 character emojis, following filters can be used:
 
 * `codeToSmiley` : Converts the string containing UTF-8 characters to smiley representation using HTML
