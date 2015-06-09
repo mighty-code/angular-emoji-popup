@@ -1,4 +1,4 @@
-#Angular Emoji
+#Forked Angular Emoji
 
 An angular module to serve multiple purpose:
 
@@ -9,54 +9,69 @@ An angular module to serve multiple purpose:
 **Demo for this repo you can find in the folder "*example*"**
 
 ##TODO
-Pleas note that this repo is in a rebuild state. **Don't use for any productive purposes!**
- - Update Documentation
  - Make the Popover Icon Menu Mobile usable
  - Register as Bower Package
- - Test
-
-###Note about encoding and decoding
-There are various standards to encode and decode emojis. Most popular are:
-
-* **Colon:** The emojis are converted to their colon style strings. This is simple to save in the database since its just a string.
-See the mapping at [http://www.emoji-cheat-sheet.com/](http://www.emoji-cheat-sheet.com/)
-
-* **UTF-8 Characters:** Emojis are mapped to their Unicode characters.  The advatage of this method is that some platforms (such as Android, iOS) can render them automatically as emoji unlike colon style encoding which almost always require decoding. On the disadvantage, Saving them in databases require special handling. See [note below](#db)
-
-A comprehensive list of unicode codes can be obtained from [http://apps.timwhitlock.info/emoji/tables/unicode](http://apps.timwhitlock.info/emoji/tables/unicode)
-
-* **HTML:** Emojis are converted to HTML `<img>` tags rendering each emoji as an image either from the single image or a sprite. 
-This is the least useful method to adopt as its not cross platform. There is no standardization of Emoji sprite images and hence you will never be sure that target platform has the same emoji images.
-
-This module contain various filters to encode and decode emojis in the above formats.
+ - Tests
 
 ##Installation
 
-Only dependencies are `Jquery`, `AngularJs` and `angular-Sanitize` module.
+Dependencies are [Bootstrap](https://github.com/twbs/bootstrap), [jQuery](https://github.com/jquery/jquery), [NanoScroller](https://github.com/jamesflorentino/nanoScrollerJS), [AngularJs](https://github.com/angular/angular) and `AangularJS's Sanitize` module. (More in bower.json)
 
-###Dependencies
-You can build the vendor at your self or take the following samples:
+***Note***: [jquery-emojiarea](https://github.com/diy/jquery-emojiarea) is not in bower.json due to custom modifications. ([More in jquery.emojiarea.custom.js](https://github.com/mighty-code/angular-emoji-popup/blob/master/src/js/jquery.emojiarea.custom.js))
+
+###Stylesheet
+
+You can build the vendor scripts and styles at your self **or take the following samples**:
+####Dependencies
 ```html
-<link type="text/stylesheet" rel="stylesheet" href="../dist/css/angular-emoji-vendor.min.css"/>
+<link type="text/stylesheet" rel="stylesheet" href="path/to//css/angular-emoji-vendor.min.css"/>
 ```
-###Core Styles
+
+####Core Styles
 The following styles are necessary:
 ```html
-<link type="text/stylesheet" rel="stylesheet" href="../dist/css/angular-emoji.min.css"/>
+<link type="text/stylesheet" rel="stylesheet" href="path/to//css/angular-emoji.min.css"/>
 ```
-src/less/variables.less
+
+###Scripts
+#### Dependencies
+```html
+<script type="text/javascript" src="path/to/js/angular-emoji-vendor.min.js"></script>
+```
+
+####Core Scripts
+
+```html
+<script type="text/javascript" src="path/to/js/angular-emoji.min.js"></script>
+```
+
+###Customation with Laravel's Elixir
+In most cases, you have to build scripts and styles at your self due to path reasons.
+Here is how you can do that:
+
+Install [Laravel's Elixir](http://laravel.com/docs/5.1/elixir) and dependencies
+
+```sh
+npm install --global gulp && npm install
+```
+
+Customize path for styles:
 
 ```less
+// src/less/variables.less
 @icon-dir : '../img'; // relative to this file!
 ```
+Customize paths for scripts:
 
-src/js/app.js
 ```javascript
-$.emojiarea.path = '../dist/img'; //relative to where this js is run at
-    $.emojiarea.spritesheetPath = '../dist/img/emojisprite_!.png'; //relative to where this js is run at
+// src/js/app.js
+
+// relative to where this js is run at
+$.emojiarea.path = '../img'; 
+$.emojiarea.spritesheetPath = '../img/emojisprite_!.png'; 
 ```
 
-Inject the `emojiApp` module to your app
+Inject the `emojiApp` module to your angular module:
 
 ```js
 angular.module("myApp", ['ngSanitize', 'emojiApp']);
@@ -114,34 +129,28 @@ For decoding the message string containing either colon style emojis or UTF-8 ch
 ```html
 <div ng-bind-html="emojiMessage.encodedtext | colonToSmiley"></div>
 ```
+###Note about encoding and decoding
+There are various standards to encode and decode emojis. Most popular are:
 
-##How it works
+* **Colon:** The emojis are converted to their colon style strings. This is simple to save in the database since its just a string.
+See the mapping at [http://www.emoji-cheat-sheet.com/](http://www.emoji-cheat-sheet.com/)
 
-Much of the functionality of this module is driven by the map contained in `config.js` file. It contains a mapping of Emoji UTF-8 character and its colon representation. If you encounter any bugs in this mapping, please raise an issue or send a pull request.
+* **UTF-8 Characters:** Emojis are mapped to their Unicode characters.  The advatage of this method is that some platforms (such as Android, iOS) can render them automatically as emoji unlike colon style encoding which almost always require decoding. On the disadvantage, Saving them in databases require special handling. See [note below](#db)
 
-<a name="db"></a>
-## Using MySQL for storage
+A comprehensive list of unicode codes can be obtained from [http://apps.timwhitlock.info/emoji/tables/unicode](http://apps.timwhitlock.info/emoji/tables/unicode)
 
-The following text is taken verbatim from [https://github.com/iamcal/js-emoji](https://github.com/iamcal/js-emoji)
+* **HTML:** Emojis are converted to HTML `<img>` tags rendering each emoji as an image either from the single image or a sprite. 
+This is the least useful method to adopt as its not cross platform. There is no standardization of Emoji sprite images and hence you will never be sure that target platform has the same emoji images.
 
-> Some special care may be needed to store emoji in your database. While some characters (e.g. Cloud, U+2601) are
-> within the Basic Multilingual Plane (BMP), others (e.g. Close Umbrella, U+1F302) are not. As such, 
-> they require 4 bytes of storage to encode each character. Inside MySQL, this requires switching from `utf8` 
-> storage to `utf8mb4`.
-
-> You can modify a database and table using a statement like:
-
->  `ALTER DATABASE my_database DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;`
->  `ALTER TABLE my_table CONVERT TO CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci;`
-
-> You will also need to modify your connection character set.
-
-> You don't need to worry about this if you translate to colon syntax before storage.
+This module contain various filters to encode and decode emojis in the above formats.
 
 ##Credits
 This project utilizes snippets and ideas from following open source projects:
 
+* [**Coraza (forked from)**](https://github.com/Coraza/angular-emoji-popup)
 * [emoji-cheat-sheet](https://github.com/arvida/emoji-cheat-sheet.com)
 * [jquery-emojiarea](https://github.com/diy/jquery-emojiarea)
 * [nanoScrollerJS](https://github.com/jamesflorentino/nanoScrollerJS)
 * [js-emoji](https://github.com/iamcal/js-emoji)
+
+
