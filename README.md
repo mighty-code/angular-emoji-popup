@@ -70,11 +70,9 @@ Customize paths for scripts:
 $.emojiarea.path = '../img'; 
 $.emojiarea.spritesheetPath = '../img/emojisprite_!.png'; 
 ```
-
-Inject the `emojiApp` module to your angular module:
-
-```js
-angular.module("myApp", ['ngSanitize', 'emojiApp']);
+Run gulp in this project's root
+```bash
+gulp
 ```
 
 ##Usage
@@ -84,6 +82,12 @@ The module consists of following components:
 * `emojiForm` - Enclose this directive with a `textarea` and a `button` named `emojibtn`.
 This directive adds a `contenteditable` `div` and hides the `textarea`. Anything typed into this `contebteditable` `div` is synced with the `textarea`. It also hooks up the button to show an Emoji popup. 
 
+Inject the `emojiApp` module to your angular module:
+
+```js
+angular.module("myApp", ['ngSanitize', 'emojiApp']);
+```
+Add directive to your input field and place button
 ```html
 <div emoji-form emoji-message="emojiMessage">
     <textarea id="messageInput" ng-model="emojiMessage.messagetext"></textarea>
@@ -152,5 +156,3 @@ This project utilizes snippets and ideas from following open source projects:
 * [jquery-emojiarea](https://github.com/diy/jquery-emojiarea)
 * [nanoScrollerJS](https://github.com/jamesflorentino/nanoScrollerJS)
 * [js-emoji](https://github.com/iamcal/js-emoji)
-
-
