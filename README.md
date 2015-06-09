@@ -5,7 +5,8 @@ An angular module to serve multiple purpose:
 * A directive to render a comprehensive emoji popup from which user can select an emoji.
 * Filters to encode the message containing emoji to various formats and decode them.
 
-###[Demo](http://coraza.github.io/angular-emoji-popup/)
+###[Demo(From original Repo)](http://coraza.github.io/angular-emoji-popup/)
+Demo for this repo you can find in the folder "example"
 
 ###Note about encoding and decoding
 There are various standards to encode and decode emojis. Most popular are:
