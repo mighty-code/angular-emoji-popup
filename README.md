@@ -19,6 +19,10 @@ Dependencies are [Bootstrap](https://github.com/twbs/bootstrap), [jQuery](https:
 
 ***Note***: [jquery-emojiarea](https://github.com/diy/jquery-emojiarea) is not in bower.json due to custom modifications. ([More in jquery.emojiarea.custom.js](https://github.com/mighty-code/angular-emoji-popup/blob/master/src/js/jquery.emojiarea.custom.js))
 
+```
+bower install mighty-code-angular-emoji-popup
+```
+
 ###Stylesheet
 
 You can build the vendor scripts and styles at your self **or take the following samples**:
