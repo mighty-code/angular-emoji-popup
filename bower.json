@@ -1,6 +1,6 @@
 {
   "name": "mighty-code-angular-emoji-popup",
-  "version": "0.2",
+  "version": "0.2.0",
   "homepage": "https://github.com/Coraza/angular-emoji-popup",
   "description": "Angular based Emoji Popup along with filters for encoding/decoding emojis",
   "main": [
