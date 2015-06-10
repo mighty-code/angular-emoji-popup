@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link type="text/stylesheet" rel="stylesheet" href="../dist/css/angular-emoji-vendor.min.css"/>
     <link type="text/stylesheet" rel="stylesheet" href="../dist/css/angular-emoji.min.css"/>
 
@@ -17,13 +18,13 @@
                 <textarea ng-model="emojiMessage.messagetext" class="form-control" name="" id=""
                           placeholder="Input..."></textarea>
                 </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
 
-                <button type="button" class="btn btn-info im_emoji_btn pull-right" id="emojibtn">
+                <button type="button" class="btn btn-info im_emoji_btn" id="emojibtn">
                     <i class="icon icon-emoji"></i>
                 </button>
             </div>
 
-            <button type="submit" class="btn btn-primary">Submit</button>
         </form>
 
         {{emojiMessage.messagetext}}
