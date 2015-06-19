@@ -89,9 +89,7 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
                         $timeout.cancel(updatePromise);
                         updateValue();
 
-                        if (typeof $scope.emojiMessage.replyToUser == 'function') { 
-                          $scope.emojiMessage.replyToUser(); 
-                        }
+                        $scope.emojiMessage.replyToUser(); 
 
                         return cancelEvent(e);
                     }
