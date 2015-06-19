@@ -1,7 +1,6 @@
 var gulp = require("gulp");
 var bower = require("gulp-bower");
 var elixir = require("laravel-elixir");
-var BrowserSync = require('laravel-elixir-browsersync');
 
 /*
  |--------------------------------------------------------------------------

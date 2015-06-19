@@ -1,3 +1,7 @@
+/*
+ * Angular Emoji Popup v0.4.0
+ */
+
 'use strict';
 
 var emojiApp = angular.module("emojiApp", ['ngSanitize']);
