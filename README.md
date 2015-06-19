@@ -93,13 +93,13 @@ angular.module("myApp", ['ngSanitize', 'emojiApp']);
 ```
 Add directive to your input field and place button
 ```html
-<div emoji-form emoji-message="emojiMessage">
+<form emoji-form emoji-message="emojiMessage" send-on-enter="true">
     <textarea id="messageInput" ng-model="emojiMessage.messagetext"></textarea>
 
     <button id="emojibtn">
         <i class="icon icon-emoji"></i>
     </button>
-</div>
+</form>
 ```
 
 Make sure to initialize `emojiMessage` inside your controller

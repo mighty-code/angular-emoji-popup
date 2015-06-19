@@ -119,6 +119,9 @@ img.emoji {
   -webkit-user-select: text;
   word-wrap: break-word;
 }
+.rating-box div.emoji-wysiwyg-editor.form-control {
+  height: auto !important;
+}
 .emoji-wysiwyg-editor img {
   width: 20px;
   height: 20px;
@@ -161,54 +164,54 @@ img.emoji {
 .is_1x .emoji-menu-tabs .emoji-menu-tab {
   background-image: url("../img/IconsetSmiles_1x.png");
 }
-.emoji-menu-tabs .icon-recent {
+.emoji-menu-tabs .icon-emoji-recent {
   background-position: -9px -306px;
 }
-.emoji-menu-tabs .icon-recent-selected {
+.emoji-menu-tabs .icon-emoji-recent-selected {
   background-position: -9px -277px;
 }
-.emoji-menu-tabs .icon-smile {
+.emoji-menu-tabs .icon-emoji-smile {
   background-position: -9px -34px;
 }
-.emoji-menu-tabs .icon-smile-selected {
+.emoji-menu-tabs .icon-emoji-smile-selected {
   background-position: -9px -5px;
 }
-.emoji-menu-tabs .icon-flower {
+.emoji-menu-tabs .icon-emoji-flower {
   background-position: -9px -145px;
 }
-.emoji-menu-tabs .icon-flower-selected {
+.emoji-menu-tabs .icon-emoji-flower-selected {
   background-position: -9px -118px;
 }
-.emoji-menu-tabs .icon-bell {
+.emoji-menu-tabs .icon-emoji-bell {
   background-position: -9px -89px;
 }
-.emoji-menu-tabs .icon-bell-selected {
+.emoji-menu-tabs .icon-emoji-bell-selected {
   background-position: -9px -61px;
 }
-.emoji-menu-tabs .icon-car {
+.emoji-menu-tabs .icon-emoji-car {
   background-position: -9px -196px;
 }
-.emoji-menu-tabs .icon-car-selected {
+.emoji-menu-tabs .icon-emoji-car-selected {
   background-position: -9px -170px;
 }
-.emoji-menu-tabs .icon-grid {
+.emoji-menu-tabs .icon-emoji-grid {
   background-position: -9px -248px;
 }
-.emoji-menu-tabs .icon-grid-selected {
+.emoji-menu-tabs .icon-emoji-grid-selected {
   background-position: -9px -222px;
 }
-.emoji-menu-tabs .icon-smile,
-.emoji-menu-tabs .icon-flower,
-.emoji-menu-tabs .icon-bell,
-.emoji-menu-tabs .icon-car,
-.emoji-menu-tabs .icon-grid {
+.emoji-menu-tabs .icon-emoji-smile,
+.emoji-menu-tabs .icon-emoji-flower,
+.emoji-menu-tabs .icon-emoji-bell,
+.emoji-menu-tabs .icon-emoji-car,
+.emoji-menu-tabs .icon-emoji-grid {
   opacity: 0.7;
 }
-.emoji-menu-tabs .icon-smile:hover,
-.emoji-menu-tabs .icon-flower:hover,
-.emoji-menu-tabs .icon-bell:hover,
-.emoji-menu-tabs .icon-car:hover,
-.emoji-menu-tabs .icon-grid:hover {
+.emoji-menu-tabs .icon-emoji-smile:hover,
+.emoji-menu-tabs .icon-emoji-flower:hover,
+.emoji-menu-tabs .icon-emoji-bell:hover,
+.emoji-menu-tabs .icon-emoji-car:hover,
+.emoji-menu-tabs .icon-emoji-grid:hover {
   opacity: 1;
 }
 .emoji-menu .emoji-items-wrap {

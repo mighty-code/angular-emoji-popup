@@ -3,13 +3,21 @@
 
 emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile', function ($timeout, $http, $interpolate, $compile) {
     return {
+        restrict: 'A', // only activate on element attribute
         scope: {
-            emojiMessage: '='
+            emojiMessage: '=',
+            sendOnEnter: '='
         },
         link: link
     };
 
     function link($scope, element, attrs) {
+        console.log($scope.sendOnEnter);
+
+        if($scope.sendOnEnter == undefined){
+            $scope.sendOnEnter = false;
+        }
+
         var messageField = $('textarea', element)[0],
             fileSelects = $('input', element),
             emojiButton = $('#emojibtn', element)[0],
@@ -28,22 +36,8 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
             richTextarea = $(
                 '.emoji-wysiwyg-editor', element)[0];
 
-        //$.emojiarea = {
-        //    path: '',
-        //    spritesheetPath: '',
-        //    spritesheetDimens: [],
-        //    iconSize: 20,
-        //    icons: {},
-        //    defaults: {
-        //        button: null,
-        //        buttonLabel: 'Emojis',
-        //        buttonPosition: 'after'
-        //    }
-        //};
-
         var s = $compile($("#messageDiv"));
         $("#messageDiv").replaceWith(s($scope));
-
 
         if (richTextarea) {
             editorElement = richTextarea;
@@ -63,19 +57,18 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
                     if (!sendAwaiting) {
                         $scope
                             .$apply(function () {
-                                $scope.emojiMessage.messagetext = richTextarea.textContent;
+                               $scope.emojiMessage.messagetext = richTextarea.textContent;
                             });
                     }
 
                     $timeout.cancel(updatePromise);
                     updatePromise = $timeout(
-                        updateValue, 1000);
-
+                        updateValue, 1000
+                    );
                 });
         }
 
-        var sendOnEnter = true;
-
+        //on enter
         $(editorElement).on(
             'keydown',
             function (e) {
@@ -85,19 +78,21 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
 
                 if (e.keyCode == 13) {
                     var submit = false;
-                    if (sendOnEnter && !e.shiftKey) {
+                    if ($scope.sendOnEnter && !e.shiftKey) {
                         submit = true;
                     }
-                    else if (!sendOnEnter && (e.ctrlKey || e.metaKey)) {
+                    else if (!$scope.sendOnEnter && (e.ctrlKey || e.metaKey)) {
                         submit = true;
                     }
 
                     if (submit) {
                         $timeout.cancel(updatePromise);
                         updateValue();
-                        $scope.emojiMessage.replyToUser();
-                        // $(element).trigger('message_send');
-                        resetTyping();
+
+                        if (typeof $scope.emojiMessage.replyToUser == 'function') { 
+                          $scope.emojiMessage.replyToUser(); 
+                        }
+
                         return cancelEvent(e);
                     }
                 }
@@ -112,7 +107,6 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
                     $scope.draftMessage.text || '').html();
                 html = html.replace(/\n/g, '<br/>');
                 $(richTextarea).html(html);
-                //lastLength = html.length;
                 updateHeight();
             }
         }
@@ -239,7 +233,10 @@ emojiApp.directive('contenteditable', ['$sce', function ($sce) {
             element.on('blur keyup change', function () {
                 scope.$evalAsync(read);
             });
-            read(); // initialize
+
+            //19.06.2015: If run on init, the controll will be marked as dirty!
+            //This is just a workaround, don't set viewValue without touch dirty
+            //read(); // initialize
 
             // Write data to the model
             function read() {

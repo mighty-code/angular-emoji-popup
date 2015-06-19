@@ -1,6 +1,7 @@
 var gulp = require("gulp");
 var bower = require("gulp-bower");
 var elixir = require("laravel-elixir");
+var BrowserSync = require('laravel-elixir-browsersync');
 
 /*
  |--------------------------------------------------------------------------
@@ -65,4 +66,5 @@ elixir(function (mix) {
         '/src/js/emojiDirectives.js',
         '/src/js/emojiFilters.js'
     ], 'dist/js/angular-emoji.min.js', './');
+
 });
