@@ -12,8 +12,6 @@ emojiApp.directive('emojiForm', ['$timeout', '$http', '$interpolate', '$compile'
     };
 
     function link($scope, element, attrs) {
-        console.log($scope.sendOnEnter);
-
         if($scope.sendOnEnter == undefined){
             $scope.sendOnEnter = false;
         }
