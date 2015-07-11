@@ -1,6 +1,5 @@
 {
   "name": "okaufmann-angular-emoji-popup",
-  "version": "0.4.0",
   "homepage": "https://github.com/Coraza/angular-emoji-popup",
   "description": "Angular based Emoji Popup along with filters for encoding/decoding emojis",
   "main": [
